@@ -1,0 +1,122 @@
+$color: #22262A;
+@mixin font($font-weight: 400) {
+    font-weight: $font-weight;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.conteiner {
+    max-width: 1153px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 120px;
+}
+
+.header {
+    padding: 20px 0 21px;
+
+    &__conteiner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px
+}
+
+.nav__list {
+    display: flex;
+
+    &-item {
+        @include font;
+        text-transform: uppercase;
+
+        &:not(:first-child) {
+            margin-left: 30px;
+        }
+    }
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        margin-left: 30px;
+
+        &-link {
+            display: block;
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.hero {
+    background-image: url(../images/hero-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &-conteiner {
+        display: flex;
+        justify-content: end;
+    }
+
+    &__content {
+        padding: 426px 0 101px;
+
+        &-subtitle {
+            @include font($font-weight: 500);
+            text-transform: uppercase;
+        }
+
+        &-text {
+            @include font($font-weight: 500);
+            margin-bottom: 27px;
+        }
+
+        &-btn {
+            @include font($font-weight: 500);
+            color: #fff;
+            width: 137px;
+            height: 35px;
+            background-color: $color;
+            display: inline-block;
+            text-align: center;
+            line-height: 35px;
+
+            &:first-child {
+                    margin-right: 34px;
+                }
+        }
+    }
+}
