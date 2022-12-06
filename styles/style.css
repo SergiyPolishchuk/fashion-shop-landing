@@ -32,9 +32,9 @@ body {
 }
 
 .section-title {
+  font-weight: 700;
   font-size: 20px;
   line-height: 30px;
-  font-weight: 700;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -114,16 +114,16 @@ body {
   margin-bottom: 27px;
 }
 .hero__content-btn {
+  display: inline-block;
+  width: 147px;
+  background-color: #22262a;
+  color: #fff;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #fff;
-  width: 137px;
   height: 35px;
-  background-color: #22262a;
-  display: inline-block;
-  text-align: center;
   line-height: 35px;
+  text-align: center;
 }
 .hero__content-btn:first-child {
   margin-right: 34px;
@@ -179,15 +179,15 @@ body {
 }
 .category__list-link {
   position: absolute;
+  width: 203px;
+  background-color: #fff;
+  color: #22262a;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #22262a;
-  width: 203px;
   height: 35px;
-  text-align: center;
   line-height: 35px;
-  background-color: #fff;
+  text-align: center;
   bottom: 28px;
   left: 32px;
   display: none;
@@ -280,8 +280,8 @@ body {
 .tachen {
   background-image: url(../images/tachen-bg.jpg);
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .tachen__content {
   padding-top: 434px;
@@ -290,15 +290,15 @@ body {
   flex-direction: column;
 }
 .tachen__content-btn {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
   width: 214px;
-  height: 35px;
-  text-align: center;
-  line-height: 35px;
   background-color: #22262a;
   color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
 }
 
 .footer {
@@ -411,9 +411,9 @@ body {
 }
 
 .list__title {
+  font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  font-weight: 600;
   margin-bottom: 27px;
 }
 

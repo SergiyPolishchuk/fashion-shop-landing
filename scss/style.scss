@@ -1,5 +1,11 @@
-$color: #22262a;
-@mixin font($font-weight: 400) {
+$color-primary: #22262a;
+$color-accent: #CF2929;
+$color-white: #fff;
+$background-light: #F2F8FC;
+$backgrount-dark: #E7F5F8;
+
+
+@mixin font ($font-weight: 500) {
   font-weight: $font-weight;
   font-size: 18px;
   line-height: 27px;
@@ -9,6 +15,34 @@ $color: #22262a;
     font-weight: $font-weight;
     font-size: 15px;
     line-height: 22px;
+}
+
+@mixin font-title($font-weight: 700) {
+  font-weight: $font-weight;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+@mixin font-big-title {
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 120px;
+}
+
+@mixin background-option {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
+  width: $width;
+  background-color: $background-color;
+  color: $color;
+  @include font;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
 }
 
 *,
@@ -39,15 +73,11 @@ body {
 }
 
 .title {
-  font-weight: 700;
-  font-size: 80px;
-  line-height: 120px;
+  @include font-big-title;
 }
 
 .section-title {
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 700;
+    @include font-title;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -56,6 +86,8 @@ body {
     @include font-2;
     text-align: center;
 }
+
+// header
 
 .header {
   padding: 20px 0 21px;
@@ -73,11 +105,13 @@ body {
   line-height: 42px;
 }
 
+// navigation
+
 .nav__list {
   display: flex;
 
   &-item {
-    @include font;
+    @include font($font-weight: 400);
     text-transform: uppercase;
 
     &:not(:first-child) {
@@ -85,6 +119,8 @@ body {
     }
   }
 }
+
+// header-icon
 
 .header-icon {
   display: flex;
@@ -101,11 +137,11 @@ body {
   }
 }
 
+// hero
+
 .hero {
   background-image: url(../images/hero-bg.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include background-option;
   margin-bottom: 121px;
 
   &-conteiner {
@@ -117,24 +153,18 @@ body {
     padding: 426px 0 101px;
 
     &-subtitle {
-      @include font($font-weight: 500);
+      @include font;
       text-transform: uppercase;
     }
 
     &-text {
-      @include font($font-weight: 500);
+      @include font;
       margin-bottom: 27px;
     }
 
     &-btn {
-      @include font($font-weight: 500);
-      color: #fff;
-      width: 137px;
-      height: 35px;
-      background-color: $color;
       display: inline-block;
-      text-align: center;
-      line-height: 35px;
+      @include btn-link;
 
       &:first-child {
         margin-right: 34px;
@@ -142,6 +172,8 @@ body {
     }
   }
 }
+
+// category
 
 .category {
   margin-bottom: 111px;
@@ -179,7 +211,7 @@ body {
     "c d b b";
 
   &-item {
-    background-color: $color;
+    background-color: $color-primary;
     position: relative;
 
     &:hover .category__list-img {
@@ -199,18 +231,14 @@ body {
 
   &-link {
     position: absolute;
-    @include font($font-weight: 500);
-    color: $color;
-    width: 203px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    background-color: #fff;
+    @include btn-link(203px, $color-white, $color-primary);
     bottom: 28px;
     left: 32px;
     display: none;
   }
 }
+
+// woman, man
 
 .woman, .man {
     margin-bottom: 111px;
@@ -254,10 +282,12 @@ body {
         }
 
         &-new {
-            color: #CF2929;
+            color: $color-accent;
         }
     }
 }
+
+// styles
 
 .styles {
     margin-bottom: 121px;
@@ -289,7 +319,7 @@ body {
         padding-left: 25px;
         right: 0;
         bottom: 5px;
-        background-color: #fff;
+        background-color: $color-white;
     }
 
     &-link {
@@ -299,15 +329,15 @@ body {
         margin-top: 174px;
         margin-left: 120px;
         padding-bottom: 4px;
-        border-bottom: 1px solid $color;
+        border-bottom: 1px solid $color-primary;
     }
 }
 
+// tachen
+
 .tachen {
     background-image: url(../images/tachen-bg.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include background-option;
 
     &__content {
         padding-top: 434px;
@@ -316,19 +346,15 @@ body {
         flex-direction: column;
 
         &-btn {
-            @include font;
-            width: 214px;
-            height: 35px;
-            text-align: center;
-            line-height: 35px;
-            background-color: $color;
-            color: #fff;
+          @include btn-link(214px);
         }
     }
 }
 
+// footer
+
 .footer {
-  background-color: #F2F8FC;
+  background-color: $background-light;
 
   &-top {
       padding-top: 115px;
@@ -343,6 +369,8 @@ body {
       font-weight: 700;
     }
 }
+
+// footer-blok-left
 
 .footer-blok-left {
   max-width: 406px;
@@ -370,7 +398,7 @@ body {
   }
 
   &-mail-link {
-    border-bottom: 1px solid $color;
+    border-bottom: 1px solid $color-primary;
     padding-bottom: 3px;
   }
 }
@@ -383,6 +411,8 @@ body {
     margin-right: 15px;
   }
 }
+
+// footer-blok-right
 
 .footer-blok-right {
   max-width: 532px;
@@ -403,6 +433,7 @@ body {
     padding-left: 24px;
     height: 45px;
     border: none;
+
     &:focus {
       outline: none;
     }
@@ -442,14 +473,12 @@ body {
 }
 
 .list__title {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 600;
+  @include font-title($font-weight: 600);
   margin-bottom: 27px;
 }
 
 .footer-bottom {
-  background-color: #E7F5F8;
+  background-color: $backgrount-dark;
   text-align: center;
   padding: 35px 0;
 
