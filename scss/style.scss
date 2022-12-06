@@ -1,49 +1,49 @@
-$color-primary: #22262a;
-$color-accent: #CF2929;
-$color-white: #fff;
-$background-light: #F2F8FC;
-$backgrount-dark: #E7F5F8;
+@import 'variables';
+// $color-primary: #22262a;
+// $color-accent: #cf2929;
+// $color-white: #fff;
+// $background-light: #f2f8fc;
+// $backgrount-dark: #e7f5f8;
 
+// @mixin font($font-weight: 500) {
+//   font-weight: $font-weight;
+//   font-size: 18px;
+//   line-height: 27px;
+// }
 
-@mixin font ($font-weight: 500) {
-  font-weight: $font-weight;
-  font-size: 18px;
-  line-height: 27px;
-}
+// @mixin font-2($font-weight: 400) {
+//   font-weight: $font-weight;
+//   font-size: 15px;
+//   line-height: 22px;
+// }
 
-@mixin font-2($font-weight: 400) {
-    font-weight: $font-weight;
-    font-size: 15px;
-    line-height: 22px;
-}
+// @mixin font-title($font-weight: 700) {
+//   font-weight: $font-weight;
+//   font-size: 20px;
+//   line-height: 30px;
+// }
 
-@mixin font-title($font-weight: 700) {
-  font-weight: $font-weight;
-  font-size: 20px;
-  line-height: 30px;
-}
+// @mixin font-big-title {
+//   font-weight: 700;
+//   font-size: 80px;
+//   line-height: 120px;
+// }
 
-@mixin font-big-title {
-  font-weight: 700;
-  font-size: 80px;
-  line-height: 120px;
-}
+// @mixin background-option {
+//   background-position: center;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+// }
 
-@mixin background-option {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-@mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
-  width: $width;
-  background-color: $background-color;
-  color: $color;
-  @include font;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-}
+// @mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
+//   width: $width;
+//   background-color: $background-color;
+//   color: $color;
+//   @include font;
+//   height: 35px;
+//   line-height: 35px;
+//   text-align: center;
+// }
 
 *,
 *::after,
@@ -74,6 +74,15 @@ body {
 
 .title {
   @include font-big-title;
+
+  @include breakpoint(md) {
+    font-size: 60px;
+    line-height: 85px;
+  }
+    @include breakpoint(xs) {
+      font-size: 40px;
+      line-height: 66px;
+    }
 }
 
 .section-title {
@@ -96,6 +105,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include breakpoint(lg) {
+        justify-content: space-around;
+      }
+    
+    @include breakpoint(sm) {
+      justify-content: space-between;
+    }
   }
 }
 
@@ -103,20 +120,111 @@ body {
   font-weight: 700;
   font-size: 28px;
   line-height: 42px;
+
+  @include breakpoint(sm) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
 }
 
 // navigation
 
+.nav-btn {
+  display: none;
+  width: 30px;
+  height: 25px;
+  background-color: transparent;
+  position: relative;
+  border: none;
+
+  @include breakpoint(lg) {
+      display: block;
+    }
+
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &__span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: $color-primary;
+
+    &::before{
+      content: '';
+      width: 30px;
+      height: 5px;
+      background-color: $color-primary;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &::after {
+      content: '';
+      width: 30px;
+      height: 5px;
+      background-color: $color-primary;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.nav {
+  @include breakpoint(lg) {
+    position: absolute;
+    width: 300px;
+    background-color: $backgrount-dark;
+    opacity: 0.8;
+    top: -300px;
+    right: 0;
+    transition: all .3s;
+  }
+}
+
+.nav.active {
+  top: 83px;
+
+  @include breakpoint(sm) {
+    top: 66px;
+  }
+}
+
 .nav__list {
   display: flex;
+
+  @include breakpoint(lg) {
+    flex-direction: column;
+  }
 
   &-item {
     @include font($font-weight: 400);
     text-transform: uppercase;
 
+    @include breakpoint(lg) {
+      border-bottom: 1px solid $color-primary;
+    }
+
     &:not(:first-child) {
       margin-left: 30px;
+
+      @include breakpoint(lg) {
+        margin-left: 0;
+        margin-top: 5px;
+      }
+
     }
+  }
+}
+
+.nav__list-link {
+  @include breakpoint(lg) {
+    margin-left: 20px;
+    display: block;
   }
 }
 
@@ -128,6 +236,20 @@ body {
 
   &__item {
     margin-left: 30px;
+
+    @include breakpoint(lg) {
+      margin-left: 0;
+    }
+
+    &:nth-child(2n) {
+      @include breakpoint(lg) {
+          padding: 0 30px;
+        }
+
+      @include breakpoint(sm) {
+        padding: 0 20px;
+      }
+    }
 
     &-link {
       display: block;
@@ -144,13 +266,32 @@ body {
   @include background-option;
   margin-bottom: 121px;
 
+  @include breakpoint(sm){
+    background-position: 35%;
+  }
+
+  @include breakpoint(md) {
+    margin-bottom: 50px;
+  }
+
   &-conteiner {
     display: flex;
     justify-content: end;
+
+    @include breakpoint(md) {
+      justify-content: center;
+    }
   }
 
   &__content {
     padding: 426px 0 101px;
+
+    @include breakpoint(md) {
+      padding: 250px 0 70px;
+    }
+        @include breakpoint(xs) {
+          text-align: center;
+        }
 
     &-subtitle {
       @include font;
@@ -160,14 +301,28 @@ body {
     &-text {
       @include font;
       margin-bottom: 27px;
+
+      @include breakpoint(md) {
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
 
     &-btn {
       display: inline-block;
       @include btn-link;
 
+      @include breakpoint(xs) {
+        font-size: 16px;
+        width: 125px;
+      }
+
       &:first-child {
         margin-right: 34px;
+
+        @include breakpoint(xs) {
+          margin-right: 18px;
+        }
       }
     }
   }

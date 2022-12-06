@@ -1,0 +1,68 @@
+$color-primary: #22262a;
+$color-accent: #cf2929;
+$color-white: #fff;
+$background-light: #f2f8fc;
+$backgrount-dark: #e7f5f8;
+
+@mixin font($font-weight: 500) {
+  font-weight: $font-weight;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+@mixin font-2($font-weight: 400) {
+  font-weight: $font-weight;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+@mixin font-title($font-weight: 700) {
+  font-weight: $font-weight;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+@mixin font-big-title {
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 120px;
+}
+
+@mixin background-option {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
+  width: $width;
+  background-color: $background-color;
+  color: $color;
+  @include font;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+
+@mixin breakpoint($point) {
+  @if $point ==lg {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  @else if $point == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point == sm {
+      @media (max-width: 576px) {
+          @content;
+      }
+  }
+  @else if $point ==xs {
+      @media (max-width: 450px) {
+          @content;
+      }
+  }
+}
