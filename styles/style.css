@@ -139,6 +139,7 @@ body {
     top: -300px;
     right: 0;
     transition: all .3s;
+    box-shadow: -1px 1px 3px #22262a;
   }
 }
 

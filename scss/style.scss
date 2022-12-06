@@ -1,49 +1,4 @@
 @import 'variables';
-// $color-primary: #22262a;
-// $color-accent: #cf2929;
-// $color-white: #fff;
-// $background-light: #f2f8fc;
-// $backgrount-dark: #e7f5f8;
-
-// @mixin font($font-weight: 500) {
-//   font-weight: $font-weight;
-//   font-size: 18px;
-//   line-height: 27px;
-// }
-
-// @mixin font-2($font-weight: 400) {
-//   font-weight: $font-weight;
-//   font-size: 15px;
-//   line-height: 22px;
-// }
-
-// @mixin font-title($font-weight: 700) {
-//   font-weight: $font-weight;
-//   font-size: 20px;
-//   line-height: 30px;
-// }
-
-// @mixin font-big-title {
-//   font-weight: 700;
-//   font-size: 80px;
-//   line-height: 120px;
-// }
-
-// @mixin background-option {
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }
-
-// @mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
-//   width: $width;
-//   background-color: $background-color;
-//   color: $color;
-//   @include font;
-//   height: 35px;
-//   line-height: 35px;
-//   text-align: center;
-// }
 
 *,
 *::after,
@@ -183,6 +138,7 @@ body {
     top: -300px;
     right: 0;
     transition: all .3s;
+    box-shadow: -1px 1px 3px $color-primary;
   }
 }
 
