@@ -34,7 +34,11 @@ $backgrount-dark: #e7f5f8;
   background-repeat: no-repeat;
 }
 
-@mixin btn-link($width: 147px, $background-color: $color-primary, $color: $color-white) {
+@mixin btn-link(
+  $width: 147px,
+  $background-color: $color-primary,
+  $color: $color-white
+) {
   width: $width;
   background-color: $background-color;
   color: $color;
@@ -45,30 +49,25 @@ $backgrount-dark: #e7f5f8;
 }
 
 @mixin breakpoint($point) {
-    @if $point ==xl {
-        @media (max-width: 1100px) {
-            @content;
-        }
+  @if $point ==xl {
+    @media (max-width: 1100px) {
+      @content;
     }
-  
-    @else if $point ==lg {
+  } @else if $point ==lg {
     @media (max-width: 992px) {
       @content;
     }
-  }
-  @else if $point == md {
+  } @else if $point == md {
     @media (max-width: 768px) {
       @content;
     }
-  }
-  @else if $point == sm {
-      @media (max-width: 576px) {
-          @content;
-      }
-  }
-  @else if $point ==xs {
-      @media (max-width: 450px) {
-          @content;
-      }
+  } @else if $point == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point ==xs {
+    @media (max-width: 450px) {
+      @content;
+    }
   }
 }
