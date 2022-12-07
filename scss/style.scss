@@ -288,7 +288,11 @@ body {
 
 .category {
   margin-bottom: 111px;
-}
+
+  @include breakpoint(md) {
+      margin-bottom: 50px;
+  }
+ }
 
 .grid-item-1 {
   max-width: 551px;
@@ -321,6 +325,21 @@ body {
     "a a b b"
     "c d b b";
 
+    @include breakpoint(lg) {
+      grid-template-areas: 
+      "a a"
+      "c d"
+      "b b"
+      "b b";
+      gap: 15px;
+      max-width: 552px;
+      margin: 0 auto;
+
+      @include breakpoint(xs) {
+        gap: 5px;
+      }
+    }
+
   &-item {
     background-color: $color-primary;
     position: relative;
@@ -346,6 +365,13 @@ body {
     bottom: 28px;
     left: 32px;
     display: none;
+
+    @include breakpoint(lg) {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: .6;
+    }
   }
 }
 
@@ -353,6 +379,10 @@ body {
 
 .woman, .man {
     margin-bottom: 111px;
+
+    @include breakpoint(md) {
+      margin-bottom: 50px;
+    }
     
 }
 
@@ -360,11 +390,19 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 65px;
+
+    @include breakpoint(lg) {
+      justify-content: space-around;
+    }
 
     &-card {
         max-width: 278px;
         padding: 0 5px;
+        margin-top: 30px;
+
+        @include breakpoint(lg) {
+          padding: 0 10px;
+        }
     }
 }
 
@@ -373,6 +411,10 @@ body {
     &-img {
         width: 100%;
         margin-bottom: 38px;
+
+        @include breakpoint(lg) {
+          margin-bottom: 15px;
+        }
     }
 
     &-brand {
@@ -402,6 +444,10 @@ body {
 
 .styles {
     margin-bottom: 121px;
+
+    @include breakpoint(lg) {
+      margin-bottom: 50px;
+    }
 }
 
 .styles__content {
@@ -409,14 +455,30 @@ body {
     display: flex;
     justify-content: space-between;
 
+    @include breakpoint(lg) {
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 0;
+    }
+
     &-blok {
         max-width: 552px;
         position: relative;
+
+        @include breakpoint(lg) {
+          width: 100%;
+          margin: 0 auto;
+        }
     }
 
     &-img {
         max-width: 100%;
         margin-top: 85px;
+        padding-right: 5px;
+
+        @include breakpoint(md) {
+          margin-top: 25px;
+        }
     }
 
     &-blok_img {
@@ -431,6 +493,12 @@ body {
         right: 0;
         bottom: 5px;
         background-color: $color-white;
+
+        @include breakpoint(sm) {
+          padding-top: 10px;
+          padding-left: 15px;
+          bottom: 30px;
+        }
     }
 
     &-link {
@@ -441,6 +509,10 @@ body {
         margin-left: 120px;
         padding-bottom: 4px;
         border-bottom: 1px solid $color-primary;
+
+        @include breakpoint(xl) {
+          margin-left: 0;
+        }
     }
 }
 
@@ -450,14 +522,36 @@ body {
     background-image: url(../images/tachen-bg.jpg);
     @include background-option;
 
+    @include breakpoint(md) {
+      background-position: 90%;
+    }
+
     &__content {
         padding-top: 434px;
         padding-bottom: 129px;
         display: flex;
         flex-direction: column;
 
+        @include breakpoint(lg) {
+          padding-top: 200px;
+          padding-bottom: 70px;
+
+          @include breakpoint(md) {
+              text-align: center;
+
+              @include breakpoint(sm) {
+                padding-top: 100px;
+                padding-bottom: 40px;
+              }
+            }
+        }
+
         &-btn {
           @include btn-link(214px);
+          
+          @include breakpoint(md) {
+            margin: 0 auto;
+          }
         }
     }
 }
@@ -472,6 +566,12 @@ body {
       padding-bottom: 106px;
       display: flex;
       justify-content: space-between;
+
+      @include breakpoint(lg) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        flex-direction: column;
+      }
     }
 
     &-title {
@@ -485,6 +585,12 @@ body {
 
 .footer-blok-left {
   max-width: 406px;
+
+  @include breakpoint(lg) {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 
   &__text {
     @include font-2;
@@ -518,8 +624,13 @@ body {
   margin-top: 16px;
   display: flex;
 
+  @include breakpoint(lg) {
+    justify-content: center;
+  }
+
   &-item {
     margin-right: 15px;
+    margin-left: 15px;
   }
 }
 
@@ -527,6 +638,10 @@ body {
 
 .footer-blok-right {
   max-width: 532px;
+
+  @include breakpoint(lg) {
+    margin: 0 auto;
+  }
 
   &__list {
     display: flex;
@@ -570,8 +685,26 @@ body {
   display: flex;
   justify-content: space-between;
 
+  @include breakpoint(sm) {
+      flex-wrap: wrap;
+      margin-top: 30px;
+      justify-content: center;
+      flex-direction: column;
+    }
+
   &__list:not(:last-child) {
     margin-right: 88px;
+
+    @include breakpoint(sm) {
+        margin-right: 0;
+      }
+  }
+
+  &__list {
+    @include breakpoint(sm) {
+        margin-top: 20px auto 0;
+        text-align: center
+      }
   }
 
   &__list-item{
